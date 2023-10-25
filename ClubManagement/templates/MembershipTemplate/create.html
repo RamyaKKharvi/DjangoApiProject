@@ -1,0 +1,68 @@
+{% extends 'MembershipTemplate/base.html' %}
+{% load static %}
+{% block content %}
+
+      <div class="row">
+          <div class="col-sm-3">
+              <h3 class="alert alert-danger font-weight-bold" style="color: indigo">Join Our Club</h3>
+              {% if messages %}
+                {% for msg in messages %} <p class="alert alert-success">{{msg}}</p>{% endfor %}
+                {% endif %}
+              <form action="" method="POST" class="alert alert-info font-weight-bold" style="color: darkblue"> {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Submit" class="btn btn-success">
+              </form>
+          </div>
+
+           <div class="col-sm-9">
+               <h3 class="text-center alert alert-danger font-weight-bold" style="color: indigo">Club members List</h3>
+               {% if data %}
+                <table class="table table-bordered table-dark border-dark table-responsive alert alert-info">
+                    <thead class="text-center">
+                        <tr style="color: firebrick">
+                          <th scope="col">Id</th>
+                          <th scope="col">First Name</th>
+                          <th scope="col">Last Name</th>
+                          <th scope="col">Age</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Phone</th>
+                          <th scope="col">Place</th>
+                          <th scope="col">Subscriber Type</th>
+                          <th scope="col">Is Active</th>
+                          <th scope="col">Subscription Date</th>
+                          <th scope="col">Subscription Renewal Date</th>
+                          <th scope="col">Membership Start Date</th>
+                          <th scope="col">Membership End Date</th>
+                          <th scope="col">Update Data</th>
+                          <th scope="col">Delete Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for member in data %}
+                        <tr class="text-center font-weight-bold" style="color: purple">
+                          <th scope="row">{{member.id}}</th>
+                          <td>{{member.first_name|capfirst}}</td>
+                          <td>{{member.last_name|capfirst}}</td>
+                          <td>{{member.age}}</td>
+                          <td>{{member.email}}</td>
+                          <td>{{member.phone|capfirst}}</td>
+                          <td>{{member.place|capfirst}}</td>
+                          <td>{{member.subscriber_type|capfirst}}</td>
+                          <td>{{member.is_active|capfirst}}</td>
+                          <td>{{member.subscription_date|capfirst}}</td>
+                          <td>{{member.subscription_renewal_date|capfirst}}</td>
+                          <td>{{member.membership_start_date|capfirst}}</td>
+                          <td>{{member.membership_end_date|capfirst}}</td>
+                          <td> <a href="{% url 'update' member.id %}"><input type="submit" value="Edit" class="btn btn-warning"></a> </td>
+                          <td> <a href="{% url 'delpage' member.id %}"><input type="submit" value="Delete" class="btn btn-danger"></a> </td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                </table>
+               {% else %}
+                <h3 class="text-center">No Data</h3>
+               {% endif %}
+           </div>
+      </div>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'MembershipTemplate/base.html' %}
+{% block content %}
+  <div class="row mt-5">
+    <div class="col-5 offset-3">
+      <h3 class="text-center alert alert-danger font-weight-bold" style="color: indigo">Are You Sure?</h3>
+      <p class="alert alert-info font-weight-bold mt-4" style="color: firebrick">
+        Are you sure you want to delete the member (id={{id}})? All of the saved details will be deleted !!!</p>
+        <form action="/member/delete{{id}}/" method="POST" class="text-center">
+          {% csrf_token %}
+          <input type="submit" value="Yes, I'm sure" class="btn btn-danger">
+          <a href="javascript:history.back()" class="btn btn-primary offset-1">No, take me back</a>
+        </form>
+    </div>
+  </div>
+{% endblock content %}

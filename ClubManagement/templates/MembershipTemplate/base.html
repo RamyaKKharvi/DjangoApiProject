@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Club Membership Project</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my_css/mystyle.css' %}">
+<style>
+    .bg-img{
+        background-image: url('{% static "images/baloon.jpg" %}');
+        background-size: cover;
+        background-attachment: fixed;
+    }
+</style>
+
+</head>
+<body class="bg-img">
+    <div class="container mt-2">
+        <h5>&nbsp;</h5>
+        <h1 class="text-center alert alert-success font-weight-bold" style="color: maroon">Club Membership Project</h1>
+        {% block content %} {% endblock content %}
+    </div>
+
+    <script href="{% static 'js/all.js' %}"></script>
+    <script href="{% static 'js/bootstrap.js' %}"></script>
+    <script href="{% static 'js/jquery.js' %}"></script>
+    <script href="{% static 'js/popper.js' %}"></script>
+</div>
+</body>
+</html>
