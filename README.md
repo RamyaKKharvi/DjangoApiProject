@@ -1,13 +1,22 @@
-DjangoApiProject
-This repo will include Api projects built with django and DRF
-Project to demonstrate django CRUD operations.
+## Project to demonstrate django CRUD operations.
 
-Started django project named "ClubManagement" and created an app named "Membership" inside the project.  
-App name was written in settings.py file inside INSTALLED_APPS. 
-Created a "Member" class model in models.py file and also created class "SubscriberChoices" which was inherited inside attribute "subscriber_type".
-Created forms.py file and created "MemberForm" form inside it.
-Templates were created to update, delete and delete data.
-Member Create, Retrieve, Update and Delete class were created by using methods from inheriting View, TemplateView, and RedirectView class inside views.py file.
-Created config.py file and year calculation was assigned to variable "MEMBERSHIP_DURATION".
-Created service.py file and inside it defined two functions to get subscription renewal date from_subscriber type and subscription_date and to get membership end date from membership start date.
-Defined urls inside settings.py and urls.py file. Created a script that will hit the given API endpoint & create, read, update, delete, and store the data received from the response to a database table.
+### Requirements:
+* Python 3.10.12
+* Django 4.2.3
+
+### Steps to run this project:
+1. Create virtual environment using `python -m venv 'ClubManagementenv'` command.
+2. Activate virtual environment using `source ClubManagementenv/bin/activate` command.
+3. Install requirements using `pip install -r requirements.txt` command.
+4. Start new project using `django-admin startproject ClubManagement` command.
+5. Change directory to django project `cd ClubManagement`
+6. Start django application using command `python manage.py startapp Membership`
+7. Add app name to setting.py file of django project in INSTALLED_APP
+8. Create model class in models.py file django project.
+9. Run `python manage.py makemigrations` command to convert class to query and `python manage.py migrate` command to create database table.
+10. Create form class in forms.py file.
+11. Create required templates
+12. Write view function in view.py file 
+13. Write urlpatterns in urls.py file of django project. 
+14. Include applications url.py file inside Project url.py file. 
+15. Run server `python manage.py runserver`
